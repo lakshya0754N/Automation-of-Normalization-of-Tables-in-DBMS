@@ -71,6 +71,26 @@ class Table:
                             temp.add((self.attributes[j], self.attributes[k]))
                             if(temp.isdisjoint(funDepSet)):
                                 functionalDependencies.append([lhs, [rhs]])
+        
+        for i in range(self.numOfAttributes):
+            for j in range(i, self.numOfAttributes):
+                for k in range(j, self.numOfAttributes):
+                    for l in range(k, self.numOfAttributes):
+                        if ((i != j) and (i != k) and (i != l) and (j != k) and (j != l) and (k != l)):
+                            lhs = [self.attributes[i], self.attributes[j], self.attributes[k]]
+                            rhs = self.attributes[l]
+                            if(self.isDependency(lhs, rhs)):
+                                # print(f"{self.attributes[i],self.attributes[j],self.attributes[k]} --> {self.attributes[l]} -True")
+                                temp = set()
+                                temp.add((self.attributes[i], self.attributes[j]))
+                                temp.add((self.attributes[i], self.attributes[k]))
+                                temp.add((self.attributes[i], self.attributes[l]))
+                                temp.add((self.attributes[j], self.attributes[k]))
+                                temp.add((self.attributes[j], self.attributes[l]))
+                                temp.add((self.attributes[k], self.attributes[l]))
+                                if(temp.isdisjoint(funDepSet)):
+                                    functionalDependencies.append([lhs, [rhs]])
+        
         return functionalDependencies
 
     # function to find closure of a set of attributes
@@ -144,4 +164,5 @@ class Table:
             x for x in self.attributes if x not in self.primaryAttributes]
 
         return
+
     
