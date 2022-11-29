@@ -114,10 +114,6 @@ class AutoNormalization:
                 break
         return 
               
-normalized = AutoNormalization("sample2.csv", "EMPLOYEE")
-print("Normalized Tables : ")
-for i in range(len(normalized.data)):
-    print(normalized.data[i], end="\n\n\n")
             
     
 

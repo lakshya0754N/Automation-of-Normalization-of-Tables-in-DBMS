@@ -21,8 +21,8 @@ class Table:
         self.setAttributes()
 
     def __str__(self):
-        print(self.table)
-        return (f"\nTable:\n {self.tableName} : {self.attributes}\n Functional Dependencies: {self.functionalDependencies}\n Candidate Keys: {self.candidateKeys}\n Primary Attributes: {self.primaryAttributes}\n Non Primary Attributes: {self.nonPrimaryAttributes}\n Primary Keys: {self.primaryKeys}")
+        # print(self.table)
+        return (f"Table:\n {self.tableName} : {self.attributes}\n Functional Dependencies: {self.functionalDependencies}\n Candidate Keys: {self.candidateKeys}\n Primary Attributes: {self.primaryAttributes}\n Non Primary Attributes: {self.nonPrimaryAttributes}\n Primary Keys: {self.primaryKeys}")
 
     def isDependency(self, lhs, rhs):
         setX = set()
