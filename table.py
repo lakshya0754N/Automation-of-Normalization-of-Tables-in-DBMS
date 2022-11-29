@@ -164,5 +164,11 @@ class Table:
             x for x in self.attributes if x not in self.primaryAttributes]
 
         return
+    
+    # function to export the table to a csv file
+    def exportTable(self, directory = ""):
+        self.setAttributes()
+        self.table.to_csv(directory + "/" + self.tableName + ".csv", index=False)
+        return 
 
     
