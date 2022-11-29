@@ -4,9 +4,13 @@ import numpy as np
 
 
 class Table:
-    def __init__(self, csvFilePath, tableName):
+    def __init__(self, csvFilePath, tableName, dataframe= None):
         self.tableName = tableName
-        self.table = pd.read_csv(csvFilePath)
+        if dataframe is not None:
+            self.table = dataframe
+        else:
+            self.table = pd.read_csv(csvFilePath)
+
         self.attributes = list(self.table.columns)
         self.numOfAttributes = len(self.attributes)
         self.functionalDependencies = None
@@ -14,6 +18,7 @@ class Table:
         self.primaryAttributes = None
         self.nonPrimaryAttributes = None
         self.primaryKeys = None
+        self.setAttributes()
 
     def __str__(self):
         print(self.table)
@@ -139,4 +144,4 @@ class Table:
             x for x in self.attributes if x not in self.primaryAttributes]
 
         return
-
+    
