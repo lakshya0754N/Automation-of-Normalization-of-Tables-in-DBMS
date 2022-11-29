@@ -1,7 +1,5 @@
 # class to represent a table in the RDBMS
 import pandas as pd
-import numpy as np
-
 
 class Table:
     def __init__(self, csvFilePath, tableName, dataframe= None):

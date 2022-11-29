@@ -1,6 +1,5 @@
 from table import Table
 import pandas as pd
-import numpy as np
 
 class AutoNormalization:
     def __init__(self, csvPath, tableName, dataframe=None):

@@ -36,7 +36,7 @@ st.write(f"Primary Key: {pKey}")
 # for key in normalized.orgTable.candidateKeys:
 #     st.write(key)
 
-st.subheader("Normalized Tables: \n")
+st.subheader("Normalized Tables(BCNF): \n")
     
 for i,tbl in enumerate(normalized.data):
     st.write(f"Table{i+1} : {tbl.tableName}")
