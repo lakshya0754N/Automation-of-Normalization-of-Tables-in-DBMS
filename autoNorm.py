@@ -3,8 +3,13 @@ import pandas as pd
 import numpy as np
 
 class AutoNormalization:
-    def __init__(self, csvPath, tableName):
-        self.data= [Table(csvPath, tableName)]
+    def __init__(self, csvPath, tableName, dataframe=None):
+        if dataframe is not None:
+            self.orgTable = Table("", tableName, dataframe)
+            self.data = [Table("", tableName, dataframe)]
+        else:
+            self.orgTable = Table(csvPath, tableName)
+            self.data = [Table(csvPath, tableName)]
         self.idx = 0
         self.autoNormalize()
         
